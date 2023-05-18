@@ -1,7 +1,7 @@
 import { Feedback } from 'components/Feedback/Feedback';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import css from './Statistic.module.css';
+// import PropTypes from 'prop-types';
+// import { useState } from 'react';
+// import css from './Statistic.module.css';
 
 export const Statistic = ({ feedback }) => {
   return (

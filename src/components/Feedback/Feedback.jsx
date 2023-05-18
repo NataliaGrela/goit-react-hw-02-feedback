@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import css from './Feedback.module.css';
+// import PropTypes from 'prop-types';
+// import { useState } from 'react';
+// import css from './Feedback.module.css';
 
 export const Feedback = ({ feedback }) => {
   const { good, neutral, bad } = feedback;
