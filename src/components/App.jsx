@@ -1,11 +1,11 @@
 import { Statistic } from './Statistic/Statistic';
 import { useState } from 'react';
-import { Section } from './Section/Section'
-import {Notification} from './Notification/Notification'
+import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 
 export const App = () => {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
-const total = feedback.good + feedback.neutral + feedback.bad
+  const total = feedback.good + feedback.neutral + feedback.bad;
   return (
     <div>
       <div
@@ -17,17 +17,11 @@ const total = feedback.good + feedback.neutral + feedback.bad
           fontSize: 40,
           color: '#010101',
         }}
-      >
-        {/* React homework template */}
-      </div>
-      
-
-      
-
+      ></div>
 
       <Section title="Please leave feedback"></Section>
-      
-<button
+
+      <button
         onClick={() => setFeedback({ ...feedback, good: feedback.good + 1 })}
       >
         Good
@@ -45,7 +39,11 @@ const total = feedback.good + feedback.neutral + feedback.bad
         Bad
       </button>
 
-      {total ? <Statistic feedback={feedback} setFeedback={setFeedback}></Statistic> : <Notification message="There is no feedback"></Notification>}
+      {total ? (
+        <Statistic feedback={feedback} setFeedback={setFeedback}></Statistic>
+      ) : (
+        <Notification message="There is no feedback"></Notification>
+      )}
     </div>
   );
 };

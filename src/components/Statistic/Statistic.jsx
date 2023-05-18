@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import css from './Statistic.module.css';
 
-export const Statistic = ({ feedback}) => {
+export const Statistic = ({ feedback }) => {
   return (
     <>
       {/* <h3>Please leave feedback</h3> */}

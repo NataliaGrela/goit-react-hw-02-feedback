@@ -7,10 +7,14 @@ export const Feedback = ({ feedback }) => {
   const total = good + neutral + bad;
   return (
     <>
+
+    
       <p>Total: {total}</p>
       <p>
         Positive feedback: {total > 0 ? ((good / total) * 100).toFixed(2) : 0}%
       </p>
+
+      
     </>
   );
 };
