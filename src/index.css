@@ -31,8 +31,12 @@ body {
   margin-left: 10px;
   width: 70px;
   cursor: pointer;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .btn:hover {
-  background-color: rgb(208, 225, 225);
+  background-color: rgb(74, 221, 221);
+  border: 1px solid black;
+  border-radius: 3px;
 }
