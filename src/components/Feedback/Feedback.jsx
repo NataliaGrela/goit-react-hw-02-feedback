@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 export const Feedback = ({ feedback }) => {
   const { good, neutral, bad } = feedback;
   const total = good + neutral + bad;
-  // const total = Object.values(feedback).reduce((acc, value) => acc + value, 0);
   const totalPositiveFeedback =
     total > 0 ? ((good / total) * 100).toFixed(1) + '%' : '0%';
 

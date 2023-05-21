@@ -5,7 +5,8 @@ import { useState } from 'react';
 
 export const App = () => {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
-  const total = feedback.good + feedback.neutral + feedback.bad;
+  // const total = feedback.good + feedback.neutral + feedback.bad;
+  const total = Object.values(feedback).reduce((acc, value) => acc + value, 0);
   return (
     <div className="container">
       <Section title="Please leave feedback"></Section>
