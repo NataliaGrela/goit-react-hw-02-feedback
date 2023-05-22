@@ -15,30 +15,30 @@ export const App = () => {
     }));
   };
 
-  const buttonsConfig = [
+  const buttons = [
     { label: 'Good', type: 'good' },
     { label: 'Neutral', type: 'neutral' },
     { label: 'Bad', type: 'bad' },
   ];
 
-  const buttons = buttonsConfig.map(button => (
-    <button
-      key={button.type}
-      className="btn"
-      onClick={() => handleButtonClick(button.type)}
-    >
-      {button.label}
-    </button>
-  ));
-
   return (
     <div className="container">
-      <Section title="Please leave feedback"></Section>
-      <div>{buttons}</div>
+      <Section title="Please leave feedback" />
+      <div>
+        {buttons.map(button => (
+          <button
+            key={button.type}
+            className="btn"
+            onClick={() => handleButtonClick(button.type)}
+          >
+            {button.label}
+          </button>
+        ))}
+      </div>
       {total ? (
         <Statistic feedback={feedback} setFeedback={setFeedback}></Statistic>
       ) : (
-        <Notification message="There is no feedback"></Notification>
+        <Notification message="There is no feedback" />
       )}
     </div>
   );
