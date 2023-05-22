@@ -5,33 +5,36 @@ import { useState } from 'react';
 
 export const App = () => {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
-  // const total = feedback.good + feedback.neutral + feedback.bad;
+
   const total = Object.values(feedback).reduce((acc, value) => acc + value, 0);
+
+  const handleButtonClick = type => {
+    setFeedback(prevFeedback => ({
+      ...prevFeedback,
+      [type]: prevFeedback[type] + 1,
+    }));
+  };
+
+  const buttonsConfig = [
+    { label: 'Good', type: 'good' },
+    { label: 'Neutral', type: 'neutral' },
+    { label: 'Bad', type: 'bad' },
+  ];
+
+  const buttons = buttonsConfig.map(button => (
+    <button
+      key={button.type}
+      className="btn"
+      onClick={() => handleButtonClick(button.type)}
+    >
+      {button.label}
+    </button>
+  ));
+
   return (
     <div className="container">
       <Section title="Please leave feedback"></Section>
-      <div>
-        <button
-          className="btn"
-          onClick={() => setFeedback({ ...feedback, good: feedback.good + 1 })}
-        >
-          Good
-        </button>
-        <button
-          className="btn"
-          onClick={() =>
-            setFeedback({ ...feedback, neutral: feedback.neutral + 1 })
-          }
-        >
-          Neutral
-        </button>
-        <button
-          className="btn"
-          onClick={() => setFeedback({ ...feedback, bad: feedback.bad + 1 })}
-        >
-          Bad
-        </button>
-      </div>
+      <div>{buttons}</div>
       {total ? (
         <Statistic feedback={feedback} setFeedback={setFeedback}></Statistic>
       ) : (
